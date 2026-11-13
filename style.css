@@ -44,6 +44,7 @@ h1 { color: #2c3e50; font-weight: 800; margin-bottom: 8px; }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(1px); }
+.btn-rojo { background-color: #e74c3c; box-shadow: 0 4px 10px rgba(231, 76, 60, 0.4); }
 
 .tabla { width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0; }
 .tabla th { background: #f8f9fa; color: #555; padding: 10px; }

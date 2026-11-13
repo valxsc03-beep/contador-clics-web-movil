@@ -36,3 +36,11 @@ boton.addEventListener("click", () => {
   textoContador.textContent = likes;
   agregarRegistro(likes);
 });
+
+const botonReiniciar = document.getElementById("btn-reiniciar");
+
+botonReiniciar.addEventListener("click", () => {
+  likes = 0;
+  textoContador.textContent = likes;
+  cuerpoTabla.innerHTML = ""; // vacía la tabla
+});
