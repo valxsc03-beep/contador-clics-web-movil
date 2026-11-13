@@ -28,6 +28,12 @@ export default function App() {
     ]);
   };
 
+  // Reto 1: reiniciar a cero
+  const reiniciarContador = () => {
+    setContador(0);
+    setRegistros([]);
+  };
+
   return (
     <View style={estilos.body}>
       <View style={estilos.tarjeta}>
@@ -38,10 +44,19 @@ export default function App() {
 
         <Text style={estilos.counterBox}>{contador}</Text>
 
-        {/* Botón disparador de eventos */}
-        <TouchableOpacity style={estilos.btnClick} onPress={incrementarContador}>
-          <Text style={estilos.btnText}>¡Haz Clic Aquí!</Text>
-        </TouchableOpacity>
+        {/* Botones disparadores de eventos */}
+        <View style={estilos.botones}>
+          <TouchableOpacity style={estilos.btnClick} onPress={incrementarContador}>
+            <Text style={estilos.btnText}>¡Haz Clic Aquí!</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[estilos.btnClick, estilos.btnReiniciar]}
+            onPress={reiniciarContador}
+          >
+            <Text style={estilos.btnText}>Reiniciar</Text>
+          </TouchableOpacity>
+        </View>
 
         {/* Tabla de registros */}
         <View style={estilos.tableContainer}>
@@ -89,14 +104,15 @@ const estilos = StyleSheet.create({
   titulo: { fontSize: 22, fontWeight: "800", color: "#2c3e50", textAlign: "center" },
   subtitulo: { fontSize: 13, color: "#555", textAlign: "center", marginTop: 6 },
   counterBox: { fontSize: 56, fontWeight: "bold", color: "#3498db", marginVertical: 16 },
+  botones: { flexDirection: "row", gap: 10, marginBottom: 20 },
   btnClick: {
     backgroundColor: "#2ecc71",
     paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 8,
     elevation: 4,
-    marginBottom: 20,
   },
+  btnReiniciar: { backgroundColor: "#e74c3c" },
   btnText: { color: "#fff", fontWeight: "bold", fontSize: 16 },
   tableContainer: {
     width: "100%",
