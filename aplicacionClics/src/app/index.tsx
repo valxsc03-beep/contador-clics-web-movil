@@ -34,15 +34,20 @@ export default function App() {
     setRegistros([]);
   };
 
+  // Reto 2: el estilo depende del estado
+  const superaDiez = contador > 10;
+
   return (
     <View style={estilos.body}>
-      <View style={estilos.tarjeta}>
+      <View style={[estilos.tarjeta, superaDiez && estilos.tarjetaMeta]}>
         <Text style={estilos.titulo}>Interactividad con React Native</Text>
         <Text style={estilos.subtitulo}>
           Toca el botón para incrementar el contador y registrar la hora exacta del evento.
         </Text>
 
-        <Text style={estilos.counterBox}>{contador}</Text>
+        <Text style={[estilos.counterBox, superaDiez && estilos.counterMeta]}>
+          {contador}
+        </Text>
 
         {/* Botones disparadores de eventos */}
         <View style={estilos.botones}>
@@ -101,9 +106,11 @@ const estilos = StyleSheet.create({
     alignItems: "center",
     elevation: 6,
   },
+  tarjetaMeta: { backgroundColor: "#fff8e1" },
   titulo: { fontSize: 22, fontWeight: "800", color: "#2c3e50", textAlign: "center" },
   subtitulo: { fontSize: 13, color: "#555", textAlign: "center", marginTop: 6 },
   counterBox: { fontSize: 56, fontWeight: "bold", color: "#3498db", marginVertical: 16 },
+  counterMeta: { color: "#e74c3c" },
   botones: { flexDirection: "row", gap: 10, marginBottom: 20 },
   btnClick: {
     backgroundColor: "#2ecc71",
